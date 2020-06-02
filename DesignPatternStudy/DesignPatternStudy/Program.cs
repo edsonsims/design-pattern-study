@@ -68,13 +68,13 @@ namespace DesignPatternStudy
         {
             Console.WriteLine("\n\nStrategy Pattern");
             var context = new StrategyPattern.Context(new Type1StrategyA(), new Type1StrategyB());
-            context.GetStrategyA().Apply();
+            context.Apply();
             context.SetStrategyA(new Type2StrategyA());
-            context.GetStrategyA().Apply();
+            context.Apply();
 
-            context.GetStrategyB().Execute();
+            context.Execute();
             context.SetStrategyB(new Type2StrategyB());
-            context.GetStrategyB().Execute();
+            context.Execute();
         }
     }
 }

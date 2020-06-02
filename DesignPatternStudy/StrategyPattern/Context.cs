@@ -13,14 +13,14 @@ namespace StrategyPattern
             this._strategyB = strategyB;
         }
 
-        public IStrategyA GetStrategyA()
+        public void Apply()
         {
-            return this._strategyA;
+            this._strategyA.Apply();
         }
 
-        public IStrategyB GetStrategyB()
+        public void Execute()
         {
-            return this._strategyB;
+            this._strategyB.Execute();
         }
 
         public void SetStrategyA(IStrategyA strategyA)
