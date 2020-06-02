@@ -3,6 +3,8 @@ using IteratorPattern.Contract;
 using MementoPattern;
 using MementoPattern.ExampleModel;
 using StatePattern;
+using StrategyPattern;
+using StrategyPattern.Strategy.B;
 using System;
 
 namespace DesignPatternStudy
@@ -14,6 +16,7 @@ namespace DesignPatternStudy
             MementoPattern();
             StatePattern();
             IteratorPattern();
+            StrategyPattern();
         }
 
         static void MementoPattern()
@@ -24,12 +27,12 @@ namespace DesignPatternStudy
             container.SetContent(new Profile("Updated XPTO", "updated@xpto.com", new DateTime(2001, 11, 11)));
             container.Undo(2);
             Console.WriteLine("Current content " + container.GetContent());
-        }       
+        }
 
         static void StatePattern()
         {
             Console.WriteLine("\n\nState Pattern");
-            var context = new Context();
+            var context = new StatePattern.Context();
 
             context.SetState(new ConcreteStateA());
             context.GetCurrentState().Handle();
@@ -59,6 +62,19 @@ namespace DesignPatternStudy
                 // Simulate changing the iterator logic without broke the client
                 iterable = new TotallyWeirdList<string>();
             }
+        }
+
+        static void StrategyPattern()
+        {
+            Console.WriteLine("\n\nStrategy Pattern");
+            var context = new StrategyPattern.Context(new Type1StrategyA(), new Type1StrategyB());
+            context.GetStrategyA().Apply();
+            context.SetStrategyA(new Type2StrategyA());
+            context.GetStrategyA().Apply();
+
+            context.GetStrategyB().Execute();
+            context.SetStrategyB(new Type2StrategyB());
+            context.GetStrategyB().Execute();
         }
     }
 }
