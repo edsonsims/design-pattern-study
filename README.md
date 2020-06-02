@@ -6,9 +6,9 @@ This repo is my personal implementation of Design Patterns to learn, remember an
 ### Behaviour Patterns
 - [x] Memento
 - [x] State
+- [x] Iterator 
 
 ### Next Patterns (I will do this later)
-- [ ] Iterator 
 - [ ] Strategy
 - [ ] Template Method
 - [ ] Command
