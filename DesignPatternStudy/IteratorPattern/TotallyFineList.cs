@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 
 namespace IteratorPattern
 {
-    public class IterableList<T>
+    public class TotallyFineList<T> : IIterableList<T>
     {
         private List<T> _list = new List<T>();
 
@@ -24,46 +24,16 @@ namespace IteratorPattern
 
         public IIterator<T> CreateIterator()
         {
-            return new IteratorList(this);
-        }
-
-        public IIterator<T> CreateTotallyWeirdIterator()
-        {
+            Console.WriteLine("Creating a totally fine iterator logic");
             return new TotallyWeirdIteratorList(this);
-        }
-
-        public class IteratorList : IIterator<T>
-        {
-            private IterableList<T> _container;
-            private int index;
-
-            public IteratorList(IterableList<T> container)
-            {
-                this._container = container;
-            }
-
-            public T GetCurrent()
-            {
-                return this._container._list[index];
-            }
-
-            public bool HasNext()
-            {
-                return this.index < this._container._list.Count;
-            }
-
-            public void Next()
-            {
-                this.index++;
-            }
         }
 
         public class TotallyWeirdIteratorList : IIterator<T>
         {
-            private IterableList<T> _container;
+            private TotallyFineList<T> _container;
             private string _lambs;
 
-            public TotallyWeirdIteratorList(IterableList<T> container)
+            public TotallyWeirdIteratorList(TotallyFineList<T> container)
             {
                 this._container = container;
                 this._lambs = "";

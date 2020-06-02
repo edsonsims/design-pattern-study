@@ -1,4 +1,5 @@
 ﻿using IteratorPattern;
+using IteratorPattern.Contract;
 using MementoPattern;
 using MementoPattern.ExampleModel;
 using StatePattern;
@@ -40,26 +41,23 @@ namespace DesignPatternStudy
         static void IteratorPattern()
         {
             Console.WriteLine("\n\nIterator Pattern");
-            var iterableList = new IterableList<string>();
-            iterableList.Push("First Value");
-            iterableList.Push("Second Value");
-            iterableList.Push("Third Value");
-            iterableList.Push("Fourth Value");
-
-            var iterator = iterableList.CreateIterator();
-            Console.WriteLine("Iterating over a common iterator");
-            while(iterator.HasNext())
+            IIterableList<string> iterable = new TotallyFineList<string>();
+            var counter = 0;
+            while (counter++ <= 1)
             {
-                Console.WriteLine("Iterating over: " + iterator.GetCurrent());
-                iterator.Next();
-            }
+                iterable.Push("First Value");
+                iterable.Push("Second Value");
+                iterable.Push("Third Value");
+                iterable.Push("Fourth Value");
+                var iterator = iterable.CreateIterator();
+                while (iterator.HasNext())
+                {
+                    Console.WriteLine("Iterating over: " + iterator.GetCurrent());
+                    iterator.Next();
+                }
 
-            var weirdIterator = iterableList.CreateTotallyWeirdIterator();
-            Console.WriteLine("Iterating over a totally weird iterator");
-            while (weirdIterator.HasNext())
-            {
-                Console.WriteLine("Iterating over: " + weirdIterator.GetCurrent());
-                weirdIterator.Next();
+                // Simulate changing the iterator logic without broke the client
+                iterable = new TotallyWeirdList<string>();
             }
         }
     }
