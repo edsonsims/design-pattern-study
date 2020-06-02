@@ -17,7 +17,7 @@ namespace MementoPattern.ExampleModel
 
         public override string ToString()
         {
-            return string.Format("{0}, {1}, {2} years old", this.Name, this.Email, (!this.BirthDate.HasValue ? 0 : ((DateTime.Now - this.BirthDate.Value).Days / 365)));
+            return string.Format("{0}, {1}, {2}", this.Name, this.Email, (!this.BirthDate.HasValue ? "no old specified" : ((DateTime.Now - this.BirthDate.Value).Days / 365) + " years old"));
         }
     }
 }
