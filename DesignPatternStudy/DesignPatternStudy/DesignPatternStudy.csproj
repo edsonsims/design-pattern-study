@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CommandPattern\CommandPattern.csproj" />
     <ProjectReference Include="..\IteratorPattern\IteratorPattern.csproj" />
     <ProjectReference Include="..\MementoPattern\MementoPattern.csproj" />
     <ProjectReference Include="..\StatePattern\StatePattern.csproj" />

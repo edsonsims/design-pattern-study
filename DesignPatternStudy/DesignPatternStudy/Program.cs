@@ -1,4 +1,5 @@
-﻿using IteratorPattern;
+﻿using CommandPattern;
+using IteratorPattern;
 using IteratorPattern.Contract;
 using MementoPattern;
 using MementoPattern.ExampleModel;
@@ -19,6 +20,7 @@ namespace DesignPatternStudy
             IteratorPattern();
             StrategyPattern();
             TemplateMethodPattern();
+            CommandPattern();
         }
 
         static void MementoPattern()
@@ -88,6 +90,21 @@ namespace DesignPatternStudy
 
             var concreteB = new ConcreteTemplateB(tool);
             concreteB.Method();
+        }
+
+        static void CommandPattern()
+        {
+            Console.WriteLine("\n\nCommandPattern Pattern");
+            var history = new History();
+            var exampleService = new ExampleService("Initial value");
+            var exampleCommand = new ExampleCommand(history, exampleService);
+            var undoCommand = new UndoCommand<string>(history);
+
+            Console.WriteLine(exampleService.GetContent());
+            exampleCommand.Execute();
+            Console.WriteLine(exampleService.GetContent());
+            undoCommand.Execute();
+            Console.WriteLine(exampleService.GetContent());
         }
     }
 }
