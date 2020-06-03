@@ -6,6 +6,7 @@ using StatePattern;
 using StrategyPattern;
 using StrategyPattern.Strategy.B;
 using System;
+using TemplateMethodPattern;
 
 namespace DesignPatternStudy
 {
@@ -17,6 +18,7 @@ namespace DesignPatternStudy
             StatePattern();
             IteratorPattern();
             StrategyPattern();
+            TemplateMethodPattern();
         }
 
         static void MementoPattern()
@@ -75,6 +77,17 @@ namespace DesignPatternStudy
             context.Execute();
             context.SetStrategyB(new Type2StrategyB());
             context.Execute();
+        }
+
+        static void TemplateMethodPattern()
+        {
+            Console.WriteLine("\n\nTemplate Method Pattern");
+            var tool = new ExternalTool();
+            var concreteA = new ConcreteTemplateA(tool);
+            concreteA.Method();
+
+            var concreteB = new ConcreteTemplateB(tool);
+            concreteB.Method();
         }
     }
 }

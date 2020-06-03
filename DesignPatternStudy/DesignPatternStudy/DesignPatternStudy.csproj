@@ -10,6 +10,7 @@
     <ProjectReference Include="..\MementoPattern\MementoPattern.csproj" />
     <ProjectReference Include="..\StatePattern\StatePattern.csproj" />
     <ProjectReference Include="..\StrategyPattern\StrategyPattern.csproj" />
+    <ProjectReference Include="..\TemplateMethodPattern\TemplateMethodPattern.csproj" />
   </ItemGroup>
 
 </Project>
