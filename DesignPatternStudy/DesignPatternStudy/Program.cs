@@ -115,17 +115,39 @@ namespace DesignPatternStudy
         {
             Console.WriteLine("\n\nObserver Pattern");
 
-            var model = new DataModel(0, "Ball");
-            var subject = new ConcreteSubject(model);
-            var observerA = new ConcreteObserverA();
-            subject.AddObserver(observerA);
+            var initialValue = new DataModel(0, "Ball");
+            var change1 = new DataModel(1, "Tree");
+            var change2 = new DataModel(2, "Car");
 
-            var observerB = new ConcreteObserverB();
-            subject.AddObserver(observerB);
+            #region Push Style
+            {
+                var subject = new ObserverPattern.PushStyle.ConcreteSubject(initialValue);
+                var observerA = new ObserverPattern.PushStyle.Observers.ConcreteObserverA();
+                subject.AddObserver(observerA);
 
-            subject.SetValue(new DataModel(1, "Tree"));
-            subject.RemoveObserver(observerA);
-            subject.SetValue(new DataModel(2, "Car"));
+                var observerB = new ObserverPattern.Observers.PushStyle.ConcreteObserverB();
+                subject.AddObserver(observerB);
+
+                subject.SetValue(change1);
+                subject.RemoveObserver(observerA);
+                subject.SetValue(change2);
+            }
+            #endregion
+            #region Pull Style
+            {
+                var subject = new ObserverPattern.PullStyle.ConcreteSubject(initialValue);
+                var observerA = new ObserverPattern.PullStyle.Observers.ConcreteObserverA(subject);
+                subject.AddObserver(observerA);
+
+                var observerB = new ObserverPattern.PullStyle.Observers.ConcreteObserverB(subject);
+                subject.AddObserver(observerB);
+
+                subject.SetValue(change1);
+                subject.RemoveObserver(observerA);
+                subject.SetValue(change2);
+            }
+            #endregion
+
         }
     }
 }

@@ -1,7 +1,7 @@
-﻿using ObserverPattern.Contract;
+﻿using ObserverPattern.PushStyle.Contract;
 using System.Collections.Generic;
 
-namespace ObserverPattern
+namespace ObserverPattern.PushStyle
 {
     public abstract class Subject<T>
     {
@@ -10,18 +10,19 @@ namespace ObserverPattern
 
         public void AddObserver(IObserver<T> observer)
         {
-            System.Console.WriteLine("Added observer to Subject");
+            System.Console.WriteLine("Push style observer added");
             this._observers.Add(observer);
         }
 
         public void RemoveObserver(IObserver<T> observer)
         {
-            System.Console.WriteLine("Removed observer to Subject");
+            System.Console.WriteLine("Push style observer removed");
             this._observers.Remove(observer);
         }
 
         public void Notify()
         {
+            System.Console.WriteLine("Push style notification sent to observers");
             this._observers.ForEach(o => o.Update(this.model));
         }
 

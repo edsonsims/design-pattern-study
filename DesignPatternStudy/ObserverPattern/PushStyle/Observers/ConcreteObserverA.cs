@@ -1,7 +1,7 @@
 ﻿using ObserverPattern.Model;
 using System;
 
-namespace ObserverPattern
+namespace ObserverPattern.PushStyle.Observers
 {
     public class ConcreteObserverA : Contract.IObserver<DataModel>
     {
@@ -10,7 +10,7 @@ namespace ObserverPattern
         public void Update(DataModel newValue)
         {
             this._model = newValue;
-            Console.WriteLine("Received Update event, new value: " + newValue);
+            Console.WriteLine("Push Style ConcreteObserverA notified, new value: " + newValue);
         }
     }
 }
