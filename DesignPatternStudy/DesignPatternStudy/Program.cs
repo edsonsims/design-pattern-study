@@ -3,6 +3,9 @@ using IteratorPattern;
 using IteratorPattern.Contract;
 using MementoPattern;
 using MementoPattern.ExampleModel;
+using ObserverPattern;
+using ObserverPattern.Model;
+using ObserverPattern.Observers;
 using StatePattern;
 using StrategyPattern;
 using StrategyPattern.Strategy.B;
@@ -21,6 +24,7 @@ namespace DesignPatternStudy
             StrategyPattern();
             TemplateMethodPattern();
             CommandPattern();
+            ObserverPattern();
         }
 
         static void MementoPattern()
@@ -105,6 +109,23 @@ namespace DesignPatternStudy
             Console.WriteLine(exampleService.GetContent());
             undoCommand.Execute();
             Console.WriteLine(exampleService.GetContent());
+        }
+
+        static void ObserverPattern()
+        {
+            Console.WriteLine("\n\nObserver Pattern");
+
+            var model = new DataModel(0, "Ball");
+            var subject = new ConcreteSubject(model);
+            var observerA = new ConcreteObserverA();
+            subject.AddObserver(observerA);
+
+            var observerB = new ConcreteObserverB();
+            subject.AddObserver(observerB);
+
+            subject.SetValue(new DataModel(1, "Tree"));
+            subject.RemoveObserver(observerA);
+            subject.SetValue(new DataModel(2, "Car"));
         }
     }
 }

@@ -10,9 +10,9 @@ This repo is my personal implementation of Design Patterns to learn, remember an
 - [x] Strategy
 - [x] Template Method
 - [x] Command
+- [x] Observer
 
 ### Next Patterns (I will do this later)
-- [ ] Observer
 - [ ] Mediator
 - [ ] Chain of Responsability
 - [ ] Visitor
