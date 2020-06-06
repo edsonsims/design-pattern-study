@@ -1,6 +1,6 @@
 ﻿namespace MediatorPattern.Colleagues
 {
-    public class ConcreteColleagueB : Colleague
+    public class ConcreteColleagueB : Colleague<ConcreteColleagueB>
     {
         private string _otherData;
 

@@ -158,7 +158,7 @@ namespace DesignPatternStudy
             Console.WriteLine("\n\nMediator Pattern");
             var colleagueA = new ConcreteColleagueA();
             var colleagueB = new ConcreteColleagueB();
-            var mediator = new ConcreteMediator(colleagueA, colleagueB);
+            var mediator = new Mediator(colleagueA, colleagueB);
 
             colleagueA.SetContent("Fizz");
         }
