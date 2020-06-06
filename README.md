@@ -11,8 +11,8 @@ This repo is my personal implementation of Design Patterns to learn, remember an
 - [x] Template Method
 - [x] Command
 - [x] Observer
+- [x] Mediator
 
 ### Next Patterns (I will do this later)
-- [ ] Mediator
 - [ ] Chain of Responsability
 - [ ] Visitor
