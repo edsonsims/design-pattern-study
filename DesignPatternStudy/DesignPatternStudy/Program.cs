@@ -1,6 +1,8 @@
 ﻿using CommandPattern;
 using IteratorPattern;
 using IteratorPattern.Contract;
+using MediatorPattern;
+using MediatorPattern.Colleagues;
 using MementoPattern;
 using MementoPattern.ExampleModel;
 using ObserverPattern;
@@ -25,6 +27,7 @@ namespace DesignPatternStudy
             TemplateMethodPattern();
             CommandPattern();
             ObserverPattern();
+            MediatorPattern();
         }
 
         static void MementoPattern()
@@ -148,6 +151,16 @@ namespace DesignPatternStudy
             }
             #endregion
 
+        }
+
+        static void MediatorPattern()
+        {
+            Console.WriteLine("\n\nMediator Pattern");
+            var colleagueA = new ConcreteColleagueA();
+            var colleagueB = new ConcreteColleagueB();
+            var mediator = new ConcreteMediator(colleagueA, colleagueB);
+
+            colleagueA.SetContent("Fizz");
         }
     }
 }
